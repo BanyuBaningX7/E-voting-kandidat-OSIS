@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            // Kolom role penyesuaian Use Case Diagram
+            $table->enum('role', ['super_admin', 'admin', 'siswa', 'guru'])->default('siswa');
             $table->rememberToken();
             $table->timestamps();
         });
