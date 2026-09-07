@@ -15,6 +15,11 @@ Route::post('/register', [AuthController::class, 'register']);
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-// Dashboard Sementara
-Route::get('/dashboard-admin', fn() => 'Halaman Dashboard Admin')->middleware('auth');
-Route::get('/dashboard-pemilih', fn() => 'Halaman Dashboard Pemilih (Siswa/Guru)')->middleware('auth');
+// Dashboard E-Voting dengan Tampilan Modern
+Route::get('/dashboard-admin', function () {
+    return view('dashboard');
+})->middleware('auth');
+
+Route::get('/dashboard-pemilih', function () {
+    return view('dashboard');
+})->middleware('auth');
